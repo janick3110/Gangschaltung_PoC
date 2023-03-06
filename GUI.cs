@@ -12,30 +12,38 @@ namespace Gangschaltung_PoC
 {
     public partial class GUI : Form
     {
-        private Car car;
+        private CarController carController;
+        private GUIController guiController;
 
         public GUI()
         {
             InitializeComponent();
+
+
+            guiController = new GUIController(lblCurrentGear);
+
         }
 
         private void btnSwitch_Click(object sender, EventArgs e)
         {
-            if (car == null || car.EngineON == false)
+
+
+            if (carController == null || carController.Car == null || carController.Car.EngineON == false)
             {
                 int.TryParse(tbGears.Text, out int gearCount);
                 int.TryParse(tbHP.Text, out int horsepower);
                 int.TryParse(tbWeight.Text, out int weight);
 
-                car = new Car(weight, gearCount, horsepower);
+                var car = new Car(weight, gearCount, horsepower);
                 car.EngineON = true;
-
+                carController = new CarController(car, guiController);
                 btnSwitch.BackColor = Color.LawnGreen;
-                lblCurrentGear.Text = car.Gearbox.CurrentGear.ToString();
+                lblCurrentGear.Text = carController.Car.Gearbox.CurrentGear.ToString();
+                carController.RunCar();
             }
             else
             {
-                car.EngineON = false;
+                carController.Car.EngineON = false;
                 btnSwitch.BackColor = Color.Tomato;
                 lblCurrentGear.Text = "-";
             }

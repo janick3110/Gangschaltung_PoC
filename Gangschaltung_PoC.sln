@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gangschaltung_PoC", "Gangschaltung_PoC.csproj", "{BCED5014-236C-4512-9D32-9B98AF40701E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCED5014-236C-4512-9D32-9B98AF40701E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCED5014-236C-4512-9D32-9B98AF40701E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCED5014-236C-4512-9D32-9B98AF40701E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCED5014-236C-4512-9D32-9B98AF40701E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F9EB4C85-4FFA-4676-B479-85C274B0DC60}
+	EndGlobalSection
+EndGlobal

@@ -10,6 +10,7 @@ namespace Gangschaltung_PoC
     {
         private int currentGear;
         private int gearCount;
+        private int[] ratios = { 3800, 2250, 1500, 1100, 850 };
 
         public Gearbox(int gearCount) { 
             this.gearCount = gearCount;
@@ -30,6 +31,11 @@ namespace Gangschaltung_PoC
             {
                 currentGear = 1;
             }
+        }
+
+        public int GetCurrentRatio()
+        {
+            return ratios[currentGear];
         }
 
 

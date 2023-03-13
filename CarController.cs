@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -46,14 +47,21 @@ namespace Gangschaltung_PoC
         private void CarControllingThread()
         {
             bool hasshifted = false;
+
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             while (true)
             {
+                //Hochschalten
                 if (Keyboard.IsKeyDown(shift) && Keyboard.IsKeyDown(Key.D) && !hasshifted)
                 {
                     car.Gearbox.ShiftGear(+1);
                     guiController.Update(car.Gearbox.CurrentGear.ToString());
                     hasshifted = true;
-                } else if (Keyboard.IsKeyDown(shift) && Keyboard.IsKeyDown(Key.A) && !hasshifted)
+                } 
+                //Runterschalten
+                else if (Keyboard.IsKeyDown(shift) && Keyboard.IsKeyDown(Key.A) && !hasshifted)
                 {
                     car.Gearbox.ShiftGear(-1);
                     guiController.Update(car.Gearbox.CurrentGear.ToString());
@@ -64,8 +72,26 @@ namespace Gangschaltung_PoC
                 {
                     hasshifted = false;
                 }
+
+                //Beschleunigen
+                if (Keyboard.IsKeyDown(acceleration))
+                {
+                    car.Accelerate(stopwatch.Elapsed.TotalSeconds);
+                    guiController.UpdateSpeedTextBox(car.GetSpeed().ToString());
+                    
+                }
+                //Bremsen
+                else if (Keyboard.IsKeyDown(brake))
+                {
+                    
+                    guiController.UpdateSpeedTextBox(car.GetSpeed().ToString());
+                }
+                guiController.UpdateRPMTextBox(car.Acceleration.ToString());
+                stopwatch.Restart();
+                
             }
         }
+
 
 
     }

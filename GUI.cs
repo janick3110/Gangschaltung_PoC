@@ -20,7 +20,7 @@ namespace Gangschaltung_PoC
             InitializeComponent();
 
 
-            guiController = new GUIController(lblCurrentGear);
+            guiController = new GUIController(lblCurrentGear, nudSpeed, nudRPM);
 
         }
 

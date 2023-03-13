@@ -56,15 +56,13 @@ namespace Gangschaltung_PoC
                 //Hochschalten
                 if (Keyboard.IsKeyDown(shift) && Keyboard.IsKeyDown(Key.D) && !hasshifted)
                 {
-                    car.Gearbox.ShiftGear(+1);
-                    guiController.Update(car.Gearbox.CurrentGear.ToString());
+                    
                     hasshifted = true;
                 } 
                 //Runterschalten
                 else if (Keyboard.IsKeyDown(shift) && Keyboard.IsKeyDown(Key.A) && !hasshifted)
                 {
-                    car.Gearbox.ShiftGear(-1);
-                    guiController.Update(car.Gearbox.CurrentGear.ToString());
+                    
                     hasshifted = true;
                 }
 
@@ -76,7 +74,7 @@ namespace Gangschaltung_PoC
                 //Beschleunigen
                 if (Keyboard.IsKeyDown(acceleration))
                 {
-                    car.Accelerate(stopwatch.Elapsed.TotalSeconds);
+                   
                     guiController.UpdateSpeedTextBox(car.GetSpeed().ToString());
                     
                 }

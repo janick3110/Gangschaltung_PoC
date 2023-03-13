@@ -38,7 +38,7 @@ namespace Gangschaltung_PoC
                 car.EngineON = true;
                 carController = new CarController(car, guiController);
                 btnSwitch.BackColor = Color.LawnGreen;
-                lblCurrentGear.Text = carController.Car.Gearbox.CurrentGear.ToString();
+                
                 carController.RunCar();
             }
             else

@@ -12,9 +12,7 @@ namespace Gangschaltung_PoC
         //Car Stats
         private int weight;
        
-        private Gearbox gearbox;
-        private Engine engine;
-        private Physics physics;
+
 
         private double wheelRadius = 0.3;
         private double axleRatio = 3.94;
@@ -31,13 +29,11 @@ namespace Gangschaltung_PoC
         public Car(int weight, int gears, int horsepower)
         {
             this.weight = weight;
-            engine = new Engine(horsepower);
-            gearbox = new Gearbox(gears);
-            physics = new Physics();
+
         }
 
         public bool EngineON { get => engineON; set => engineON = value; }
-        public Gearbox Gearbox { get => gearbox;}
+
         public double Acceleration { get => acceleration; set => acceleration = value; }
 
         public int MaxRPM => maxRPM;
@@ -50,19 +46,9 @@ namespace Gangschaltung_PoC
             return speed;
         }
 
-        public double GetAcceleration(int degree)
-        {
-            double resistingForces = physics.CalculateForces(speed, weight);
-            double forces = (engine.CalculateDrivingForce(gearbox.CurrentGear, axleRatio, wheelRadius * 2) - resistingForces);
-            acceleration = forces / weight;
-            return acceleration;
-        }
 
 
-        public void Accelerate(double time)
-        {
-            speed += GetAcceleration(0) * time * 500; 
-        }
+
 
 
 
